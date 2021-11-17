@@ -1,6 +1,6 @@
 # IPO_a-osdeescolaridad
 
-Los años de escolaridad según la pobreza multidimensional, el nivel de escolaridad de la madre y el sexo: un análisis de regresión múltiple
+# Los años de escolaridad según la pobreza multidimensional, el nivel de escolaridad de la madre y el sexo: un análisis de regresión múltiple
 
 Autores: Gabriela Ruz, Fabian Alarcon, Martin Henriquez, Nicolás Gajardo y Gabriela Zenteno.
 ---
