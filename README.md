@@ -1,9 +1,8 @@
 # IPO_a-osdeescolaridad
 
-title: "Los años de escolaridad según la pobreza multidimensional, el nivel de escolaridad de la madre y el sexo: un análisis de regresión múltiple"
-author: Gabriela Ruz, Fabian Alarcon, Martin Henriquez, Nicolás Gajardo y Gabriela
-  Zenteno.
-date: "8/10/2021"
+#"Los años de escolaridad según la pobreza multidimensional, el nivel de escolaridad de la madre y el sexo: un análisis de regresión múltiple"
+
+Autores: Gabriela Ruz, Fabian Alarcon, Martin Henriquez, Nicolás Gajardo y Gabriela Zenteno.
 ---
 
 ## Descripción
