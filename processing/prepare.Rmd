@@ -1,0 +1,96 @@
+---
+title: "Procesamiento de datos - Casen 2017"
+---
+
+# Descripción general
+
+Este código procesa los datos originales de la CASEN 2017 y genera un archivo con la información necesaria para realizar los análisis.
+
+# Librerías
+
+```{r}
+#---- 0. Instalar paquetes/limpiar espacio ----
+#install.packages("pacman")
+pacman::p_load(dplyr, sjmisc, car, sjlabelled, stargazer, haven, summarytools, kableExtra)
+
+```
+# Data
+```{r}
+#---- 1. Cargar base de datos ----
+getwd()
+library(haven)
+Casen_2017 <- read_dta(../input/data/original/Casen 2017.dta")
+#View(Casen_2017)
+
+#---- 2. Variables a trabajar ----
+find_var(data = Casen_2017, "escolaridad") #esc
+find_var(data = Casen_2017, "sexo") #sexo
+find_var(data = Casen_2017, "edad") #edad
+find_var(data = Casen_2017, "pobreza multidimensional")#pobreza_multi_5d
+find_var(data = Casen_2017, "educacion madre") #r12a
+
+baseproc <- Casen_2017 %>% select(esc,sexo,edad,pobreza_multi_5d,r12a)
+#---- 4.Procesamiento de Variables ----
+frq(baseproc$esc)
+frq(baseproc$sexo)
+frq(baseproc$edad)
+frq(baseproc$pobreza_multi_5d)
+frq(baseproc$r12a)
+
+#---- 5. Recodificaci?n casos y eliminaci?n de los caso perdidos
+baseproc$sexo <- recode(baseproc$sexo, "c(1)=0") #Se recodifica la variable sexo como dummy
+baseproc$sexo <- recode(baseproc$sexo, "c(2)=1")
+baseproc$r12a <- recode(baseproc$r12a, "c(3)=2; c(4,5,6,7)=3;c(8)=4;c(9,10)=5;c(77,99)=NA") #Se recodifican seg?n categor?a CINE de la UNESCO (2011)
+
+#Eliminaci?n caso perdidos (NA)
+sum(is.na(baseproc)) # Cantidad anterior a eliminaci?n NA en la base ser?an 216439
+baseproc <-na.omit(baseproc) # Eliminar NA 
+dim(baseproc) # Dimensi?n base posterior eliminaci?n de NA es igual a 51472 
+
+#---- 6. Recodificar el etiquetado 
+baseproc <- baseproc %>% rename("escolaridad"=esc, # Se recodifican la variable de los a?os de escolaridad
+                                "educacion_madre"=r12a, #Se recodifican la variable Nivel educacional de la madre del entrevistad/a
+                                "pobreza_multidimensional" =pobreza_multi_5d) # Se recodifica el nombre de la variable la pobreza multidimensional
+
+get_label(baseproc$escolaridad)
+baseproc$escolaridad <- set_label(x = baseproc$escolaridad,label = "A?os de escolaridad") #El subtitulo de la variable se recodifica como A?os de escolaridad para su mejor compresion
+
+get_label(baseproc$sexo) #Se recodifica el subtitulo de la variable sexo para su mejor compresion  
+baseproc$sexo<- set_label(x = baseproc$sexo,label = "Sexo de entrevistado/a")
+baseproc$sexo <- set_labels(baseproc$sexo,#Se recodifican los casos del sexo del entrevistado para poder leer los datos como variable dummy
+                                 labels=c( "Hombre"=0,
+                                           "Mujer"=1))
+
+get_label(baseproc$pobreza_multidimensional) #Se recodifica la pobreza del entrevistado para poder ser lee?da como variable dummy
+baseproc$pobreza_multidimensional <- set_labels(baseproc$pobreza_multidimensional,
+                            labels=c( "No es pobre"=0,
+                                      "Si es pobre"=1))
+get_label(baseproc$educacion_madre) #Se recodifica el subtitulo del nivel educacional de la madre segun las definiciones de eduaci?n CINE de la Unesco 
+baseproc$educacion_madre<- set_label(x = baseproc$educacion_madre,label = "Nivel de educaci?n m?s alto alcanzado por su madre (o fig.materna)")
+baseproc$educacion_madre <- set_labels(baseproc$educacion_madre,
+                                                labels=c( "1=Primaria incompleta menos"=1,
+                                                          "2=Primaria y secundaria baja"=2,
+                                                          "3=Secundaria alta"=3,
+                                                          "4=Terciaria ciclo corto"=4,
+                                                          "5=Terciaria y Postgrado"=5))
+ 
+ 
+#---- 7. Generacion de base de datos procesada para el analisis
+## Revision de datos
+stargazer(baseproc, type="text")
+
+#-----7.1 Guardar base de datos
+## Estructura carpeta de datos
+save(baseproc,file =("input/data/proc/baseproc.RData"))
+
+```
+# Información de la sesión
+
+```{r}
+print(paste("R", getRversion()))
+print("*** Versiones de librerías")
+for (package_name in sort(loadedNamespaces())) {
+    print(paste(package_name, packageVersion(package_name)))
+}
+
+```

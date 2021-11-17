@@ -1,0 +1,131 @@
+---
+title: "Codigo análisis"
+author: Gabriela Ruz, Fabian Alarcon, Martin Henriquez, Nicolás Gajardo y Gabriela
+  Zenteno.
+date: "8/10/2021"
+output:
+  html_document:
+      code_folding: hide
+      toc: true
+      toc_float: true
+bibliography: Ciencia_Abierta.bib
+---
+
+
+```{r setup, include=FALSE} 
+knitr::opts_chunk$set(echo = TRUE, # oculta código
+        warning=F, message=F,  # oculta warnings y mensajes
+        cache=TRUE) # guarda en la memoria resultados, más velocidad)
+
+#Codigo de analisis
+#---- 0. Instalar paquetes/limpiar espacio ----
+
+load("../input/data/proc/baseproc.RData")
+
+pacman::p_load(dplyr, #manipulacion de datos
+               sjPlot, #tablas
+               webshot, #Guardar Tablas
+               summarytools, #estadisticos descriptivos
+               sjlabelled, #etiquetas variables
+               coefplot, # graficos de coeficientes
+               ggpubr, #graficos
+               sjPlot, #tablas
+               gridExtra, #unir graficos
+               texreg, #mostrar regresion multiple
+               corrplot, #tabla correlación
+               ggplot2, #Graficos
+              tidyverse,#Manipulacion de datos
+              devtools,
+              citr) #Citación bibtext 
+
+#library(devtools)
+#devtools::install_github("crsh/citr", force = T) #Instalar citr addins de citación bibtext
+#webshot::install_phantomjs(force = T) #guardar imagenes tablas y gráficos
+
+#----1. Analisis univariado: Descripción de variables
+#Tabla de operacionalización de variables
+view_df(baseproc,file = "../output/tables/tabla_1.html")
+webshot("../output/tables/tabla_1.html", "../output/tables/tabla_1.png") 
+
+#---- 2. Analisis bi variado: Correlación entre variables
+
+#Gráfico 1
+
+graf_1 <-plot_grpfrq(var.cnt = baseproc$escolaridad,var.grp = baseproc$sexo,type = "box")
+png("../output/graphs/graf_1.png")
+plot(graf_1)
+dev.off()
+
+#Gráfico 2
+
+graf_2<-plot_grpfrq(var.cnt = baseproc$escolaridad,var.grp =baseproc$pobreza_multidimensional,type = "box")
+plot(graf_2)
+graf_2
+dev.copy(png,"../output/graphs/graf_2.png"); dev.off()
+
+#Gráfico 3
+graf_3<-plot_grpfrq(var.cnt = baseproc$escolaridad,var.grp = baseproc$educacion_madre,type =
+"box")
+plot(graf_3)
+graf_3
+dev.copy(png,"../output/graphs/graf_3.png"); dev.off()
+
+
+# Se realiza la Tabla de correlación entre variables
+
+tabcorre <- sjPlot::tab_corr(baseproc,
+                   triangle = "lower",
+                   title = "Tabla Correlación", 
+                   file = ("../output/tables/tabla_corre.html"))
+tabcorre
+
+webshot("../output/tables/tabla_corre.html", "../output/tables/tabla_corre.png") 
+
+#---3. Se realiza Regresión multiple con variables seleccionadas
+#Se prepara la variable dummy de pobreza 
+baseproc %>%
+ group_by(pobreza_multidimensional) %>%
+  summarise(mean_escolaridad=mean(escolaridad,na.rm = T))
+
+#Se realiza el modelo de regresion de variable pobreza 
+reg1<-lm(escolaridad ~ pobreza_multidimensional, data=baseproc)
+
+#Se prepara la variable categorica del nivel educacional para que pueda ser procesada por R
+
+baseproc$educacion_madre<- as_factor(baseproc$educacion_madre)
+reg2<-lm(escolaridad ~ pobreza_multidimensional+educacion_madre, data=baseproc)
+#Se realiza el modelo de regresion
+baseproc$educacion_madre<- as_factor(baseproc$educacion_madre)
+
+#Se prepara la variable dummy del sexo 
+baseproc %>%
+  group_by(sexo) %>%
+  summarise(mean_escolaridad=mean(escolaridad,na.rm = T))
+#Se realiza modelo de regresion
+reg3<-lm(escolaridad ~ pobreza_multidimensional+educacion_madre+sexo, data=baseproc)
+
+#Se prepara la variable de nivel educacional pues el categorica para que pueda ser leida por R
+baseproc$educacion_madre<- as_factor(baseproc$educacion_madre)
+reg4 <- lm(escolaridad~educacion_madre,data = baseproc)
+reg4<-lm(escolaridad ~ pobreza_multidimensional+educacion_madre+sexo+edad, data=baseproc)
+sjPlot::tab_model(list(reg1,reg2, reg3, reg4),
+                  show.se=TRUE,
+                  show.ci=FALSE,
+                  digits=3,
+                  p.style = "stars",
+                  dv.labels = c("Modelo 1", "Modelo 2", "Modelo 3", "Modelo 4"),
+                  string.pred = "Predictores",
+                  string.est = "??",
+                  file = "../output/tables/reg4.html")
+webshot("../output/tables/reg4.html", "../output/tables/reg4.png") 
+
+
+#---- 5. Visualización coeficiente de regresión
+
+graf_4 <-plot_model(reg4, show.values = TRUE)+ theme_sjplot()
+png("../output/graphs/graf_4.png")
+plot(graf_4)
+dev.off()
+
+
+```
