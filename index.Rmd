@@ -1,5 +1,9 @@
-# IPO_a-osdeescolaridad
-
+---
+title: "Investigación abierta"
+author: "Gabriela Ruz"
+date: "24-11-2021"
+output: html_document
+---
 # Los años de escolaridad según la pobreza multidimensional, el nivel de escolaridad de la madre y el sexo: un análisis de regresión múltiple
 
 Autores: Gabriela Ruz, Fabian Alarcon, Martin Henriquez, Nicolás Gajardo y Gabriela Zenteno.

@@ -1,9 +1,9 @@
 
 ---
 name: "Gabriela Ruz"
-output_dir: "."
+output_dir: "https://gabrielaruzal.github.io/IPO_a-osdeescolaridad/"
 navbar:
-  title: "Los años de escolaridad según la pobreza multidimensional, el nivel de escolaridad de la madre y el sexo: un análisis de regresión múltiple"
+  title: "Investigación abierta"
   left:
   - text: "reporte"
     href: reporte.html
