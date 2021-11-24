@@ -20,7 +20,7 @@ educacional. Se elaborará un modelo de regresión múltiple a partir de los dat
 
 Este trabajo sigue el protocolo de investigación reproducible IPO, el cual sigue la lógica del protocolo [TIER](https://www.projecttier.org/), pero con algunas innovaciones, para más información revisar la página: https://juancarloscastillo.github.io/ipo/
 
-Para mayor información, visite el siguiente [link](https://gabrielaruzal.github.io/IPO_a-osdeescolaridad/) o visite el preregistro que se encuentra en la siguiente [página](https://osf.io/4evrw)
+Para mayor información, visite el siguiente la página OSF del [proyecto](https://osf.io/ekp4c/), [link](https://gabrielaruzal.github.io/IPO_a-osdeescolaridad/), visite el preregistro que se encuentra en la siguiente [página](https://osf.io/4evrw).
 
 ## Instalación
 
