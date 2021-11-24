@@ -18,9 +18,9 @@ los años de escolaridad de las personas, entendiendo que dichas variables prove
 información sobre las circunstancias socioeconómicas que caracterizarán la trayectoria
 educacional. Se elaborará un modelo de regresión múltiple a partir de los datos proporcionados por la encuesta [CASEN 2017](http://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen-2017).
 
-Este trabajo sigue el protocolo de investigación reproducible IPO, el cual sigue la lógica del protocolo TIER(https://www.projecttier.org/), pero con algunas innovaciones, para más información revisar la página: https://juancarloscastillo.github.io/ipo/
+Este trabajo sigue el protocolo de investigación reproducible IPO, el cual sigue la lógica del protocolo [TIER](https://www.projecttier.org/), pero con algunas innovaciones, para más información revisar la página: https://juancarloscastillo.github.io/ipo/
 
-Para mayor información, el preregistro se encuentra en la siguiente pagina: https://osf.io/4evrw
+Para mayor información, visite el siguiente [link](https://gabrielaruzal.github.io/IPO_a-osdeescolaridad/) o visite el preregistro que se encuentra en la siguiente [página](https://osf.io/4evrw)
 
 ## Instalación
 
