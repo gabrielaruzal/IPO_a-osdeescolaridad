@@ -4,7 +4,7 @@ author: Gabriela Ruz, Fabian Alarcon, Martin Henriquez, Nicolás Gajardo y Gabri
   Zenteno.
 date: "8/10/2021"
 name: "Gabriela Ruz"
-output_dir: "https://gabrielaruzal.github.io/IPO_a-osdeescolaridad/"
+output_dir: "."
 navbar:
   title: "Pagina web paper"
   left:
@@ -17,9 +17,6 @@ navbar:
     href: https://github.com/gabrielaruzal/IPO_a-osdeescolaridad
 output:
   html_document:
-    toc: true
-    toc_float: true 
     theme: cerulean
-bibliography: input/bib/Ciencia_Abierta.bib
-link-citations: yes
+    css: 'styles.css'
 ---
