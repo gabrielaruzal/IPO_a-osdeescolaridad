@@ -1,0 +1,19 @@
+
+---
+name: "Gabriela Ruz"
+output_dir: "."
+navbar:
+  title: "Los años de escolaridad según la pobreza multidimensional, el nivel de escolaridad de la madre y el sexo: un análisis de regresión múltiple"
+  left:
+  - text: "reporte"
+    href: reporte.html
+  right:
+  - icon: fa-envelope fa-lg
+    href: (gabriela.ruz@ug.uchile.cl)
+  - icon: fa-github fa-lg
+    href: https://github.com/gabrielaruzal/IPO_a-osdeescolaridad/
+output:
+  html_document:
+    theme: yeti
+    css: 'styles.css'
+---
