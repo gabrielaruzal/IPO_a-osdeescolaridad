@@ -1,11 +1,11 @@
 
 ---
 name: "Gabriela Ruz"
-output_dir: "https://gabrielaruzal.github.io/IPO_a-osdeescolaridad/"
+output_dir: "."
 navbar:
   title: "Investigación abierta"
   left:
-  - text: "reporte"
+  - text: "Reporte"
     href: reporte.html
   right:
   - icon: fa-envelope fa-lg
