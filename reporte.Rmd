@@ -497,4 +497,4 @@ En cuanto a las limitaciones, es posible que al considerar la variación de los 
 <div/>
   
   
-  ## 6. Referencias
+## 6. Referencias
