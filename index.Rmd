@@ -60,4 +60,3 @@ La licencia del projecto es la [GNU General Public License (GPL) 3.0](http://www
 ## Estado del proyecto 
 
 El proyecto ha sido completado. 
-
