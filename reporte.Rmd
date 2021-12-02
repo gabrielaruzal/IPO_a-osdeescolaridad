@@ -1,28 +1,23 @@
 ---
 title: "Los años de escolaridad según la pobreza multidimensional, el nivel de escolaridad de la madre y el sexo: un análisis de regresión múltiple"
-author: Gabriela Ruz, Fabian Alarcon, Martin Henriquez, Nicolás Gajardo y Gabriela
-  Zenteno.
+author: Gabriela Ruz, Fabian Alarcon, Martin Henriquez, Nicolás Gajardo y Gabriela Zenteno.
 date: "8/10/2021"
-output:
-  html_document:
-      code_folding: hide
-      toc: true
-      toc_float: true
+toc: true
+toc_float: true
 bibliography: input/bib/Ciencia_Abierta.bib
 link-citations: yes
-
 ---
-```{r setup, include=FALSE} 
-knitr::opts_chunk$set(echo = FALSE, # oculta código
-        warning=F, message=F,  # oculta warnings y mensajes
-        cache=TRUE, 
-        encoding = 'UTF-8') # guarda en la memoria resultados, más velocidad)
 
+    ```{r setup, include=FALSE} 
+knitr::opts_chunk$set(echo = FALSE, # oculta código
+                      warning=F, message=F,  # oculta warnings y mensajes
+                      cache=TRUE, 
+                      encoding = 'UTF-8') # guarda en la memoria resultados, más velocidad)
 ```
 <div style="text-align: justify">
 ### Resumen
-
-En la sociedad chilena, la educación constituye un valor muy apreciado por la
+  
+  En la sociedad chilena, la educación constituye un valor muy apreciado por la
 población, que ve en ella la única forma de progresar en la vida. Por ello, la mayoría de las
 personas se encuentran dispuestas a realizar grandes esfuerzos para obtener un buen nivel
 educacional [@oliva_88_2018]. Sin embargo, existen factores vinculados a desigualdades
@@ -42,13 +37,12 @@ a edad, disminuirían en un -0,079 a medida que aumenta. Se concluye la relevanc
 del modelo, con un R cuadrado ajustado de 0.425.
 
 Palabras clave: “Escolaridad”; Pobreza multidimensional”; “Sexo”; “Regresión múltiple”.
+
 ```{r, echo=FALSE}
 #Codigo de analisis
 #---- 0. Instalar paquetes/limpiar espacio ----
-
 load("input/data/proc/baseproc.RData")
-
-
+getwd()
 pacman::p_load(dplyr, #manipulacion de datos
                sjPlot, #tablas
                webshot, #Guardar Tablas
@@ -64,11 +58,9 @@ pacman::p_load(dplyr, #manipulacion de datos
                tidyverse,#Manipulacion de datos
                devtools,
                citr) #Citación bibtext 
-
 #library(devtools)
 #devtools::install_github("crsh/citr", force=T) #Instalar citr addins de citación bibtext
 #webshot::install_phantomjs() #guardar imagenes tablas y gráficos
-
 ```
 
 ## 1.Introducción
@@ -112,12 +104,12 @@ encontrar empleos y tener buenos salarios.
 ¿De qué manera inciden las variables **pobreza multidimensional**, **nivel de
 escolaridad de la madre** y **sexo** en **los años de escolaridad** de la población chilena,
 controlado por la variable edad?
-
-### 1.2 Objetivos
-
-#### 1.2.1 Objetivo general
-
-* Analizar la incidencia de las variables pobreza multidimensional, nivel de
+  
+  ### 1.2 Objetivos
+  
+  #### 1.2.1 Objetivo general
+  
+  * Analizar la incidencia de las variables pobreza multidimensional, nivel de
 escolaridad de la madre y sexo en los años de escolaridad de la población chilena,
 controlado por la variable edad
 
@@ -135,8 +127,8 @@ no presenten situación de pobreza multidimensional, 2) presenten mayor nivel de
 la madre o figura materna y 3) se declaren de sexo masculino.
 
 **Criterios de contraste de hipotesis**
-
-Se plantea que los años de escolaridad tienden a ser mayores en personas que: 1)
+  
+  Se plantea que los años de escolaridad tienden a ser mayores en personas que: 1)
 presenten situación de pobreza multidimensional, 2) no presenten mayor nivel de escolaridad de
 la madre o figura materna y 3) se declaren de femenino.
 
@@ -154,7 +146,7 @@ Se plantea que los años de escolaridad tienden a ser mayores en personas cuyas 
 En relación a esto, la pobreza multidimensional como medida asociada a la
 vulnerabilidad social, consiste en 5 dimensiones que pueden ser claves con respecto al
 período de escolaridad de una persona (Educación, Salud, Trabajo y Seguridad Social,
-Vivienda y Entorno, Redes y Cohesión Social). El bajo desempeño de estas dimensiones
+                                       Vivienda y Entorno, Redes y Cohesión Social). El bajo desempeño de estas dimensiones
 puede tener una afección negativa en los años de escolaridad [@herrera_macguire_rezago_2020]. En cuanto al
 nivel de escolaridad de la madre, estudios arrojan diferencias en la escolaridad de los hijos
 dependiendo del sexo del/a jefe/a en hogares monoparentales, en desmedro de hogares de
@@ -170,7 +162,7 @@ educación de sus hijos/as [@escamilla_r_familias_2013].
 En cuanto a la variable sexo, el promedio de años de escolaridad de la población de 25 años o
 más también aumentó, pasando de 8,23 en 1992 a 11,05 en 2017. No obstante, en las mujeres,
 el promedio creció de 8,08 a 10,95 en el mismo lapso y el de hombres, de 8,39 a 11,16 (INE,
-2018). Así, se vislumbra que el género influye en los logros educativos, y que esta situación
+                                                                                       2018). Así, se vislumbra que el género influye en los logros educativos, y que esta situación
 se sigue sosteniendo a lo largo del tiempo [@zeng_gender_2014]. Finalmente, se introducirá un control por edad para parcializar las diferencias que podrían existir en función de esta variable.
 
 ## 3.Metodología
@@ -194,8 +186,8 @@ continua que consiste en el número de años de estudio de una persona. Luego, l
 predictoras son “Nivel de educación más alto alcanzado por la madre” (educacion_madre),
 considerando 5 niveles que se encuentran indicados en la Tabla 1, recodificados a partir de la
 categorización CINE de la UNESCO (2011), donde:
-
-1 = Primaria incompleta o menos
+  
+  1 = Primaria incompleta o menos
 2 = Primaria y secundaria baja
 3 = Secundaria alta
 4 = Terciaria de ciclo corto
@@ -203,7 +195,7 @@ categorización CINE de la UNESCO (2011), donde:
 
 También se encuentra el predictor “Situación de pobreza multidimensional”
 (pobreza_multidimensional), que es una medición basada en 5 dimensiones (Educación,
-Salud, Trabajo y Seguridad Social, Vivienda y Entorno, Redes y Cohesión Social), y que se
+                                                                         Salud, Trabajo y Seguridad Social, Vivienda y Entorno, Redes y Cohesión Social), y que se
 expresa como variable dummy (0 = No es pobre; 1 = Si es pobre). En tercer lugar, se incluye
 la variable “Sexo” dicotómica con categorías Hombre (0) y Mujer (1), y control por “Edad”
 como variable continua.
@@ -217,15 +209,15 @@ considere las correlaciones entre estas, incluyendo gráficos de caja para las v
 dicotómicas. Finalmente se elaborará un modelo de regresión múltiple, que considerará de
 manera conjunta a las variables independientes para predecir los años de escolaridad. Se
 representa mediante la siguiente ecuación:
-
-**Modelo Regresión Múltiple**
-
-Años de escolaridad = 𝛽0 + 𝛽1 ∙ pobreza multidimensional + 𝛽2 ∙nivel de escolaridad de la
+  
+  **Modelo Regresión Múltiple**
+  
+  Años de escolaridad = 𝛽0 + 𝛽1 ∙ pobreza multidimensional + 𝛽2 ∙nivel de escolaridad de la
 madre + 𝛽3 ∙ sexo + 𝛽4 ∙ 𝑒𝑑𝑎𝑑 + 𝜀
 
 Donde:
-
-* Años de escolaridad es la variable a predecir
+  
+  * Años de escolaridad es la variable a predecir
 * 𝛽0 es el intercepto
 * 𝛽𝑖 es el coeficiente de regresión, que indica cuánto varían los años de escolaridad por
 cada punto que aumentan las variables independientes.
@@ -236,14 +228,12 @@ cada punto que aumentan las variables independientes.
 ### 4.1 Análisis Descriptivo Univariado
 
 **Tabla 1. Descripción de las variables**
-
+  
 ```{r, echo=FALSE}
 #----1. Analisis univariado: Descripción de variables
 #Tabla de operacionalización de variables
 view_df(baseproc,encoding = "tabla_1")
-
 #webshot("../output/tables/tabla_1.html", "../output/tables/tabla_1.png") 
-
 ```
 
 Se observa en la Tabla 1 que la media de años de escolaridad es de 10.8, con una
@@ -260,20 +250,16 @@ de 16.2 años.
 ### 4.2 Análisis Descriptivo Bivariado
 
 **Gráfico 1. Años de escolaridad según sexo**
-
-![](Output/graphs/graf_1.png)
+  
+  ![](output/graphs/graf_1.png)
 ```{r, echo=FALSE, eval =F}
 #---- 2. Analisis bi variado: Correlación entre variables
-
 #Gráfico 1
 plot_grpfrq(var.cnt = baseproc$escolaridad,var.grp = baseproc$sexo,type = "box")
-
-
 #graf_1 <-plot_grpfrq(var.cnt = baseproc$escolaridad,var.grp = baseproc$sexo,type = "box")
 #png("../output/graphs/graf_1.png")
 #plot(graf_1)
 #dev.off()
-
 ```
 
 En el Gráfico 1 se observa que la mediana de años de escolaridad entre mujeres y
@@ -282,22 +268,20 @@ peso de los casos inferiores extremos, haciendo que la media sea menor. A su vez
 de los hombres existe una mayor dispersión de los casos, con un rango intercuartílico más
 amplio que el de las mujeres. Se evidencia que, en el caso de los hombres, un 75% de los
 casos posee 15 o menos años de escolaridad, mientras que en las mujeres es 13 años (rangos
-aproximados). Así, es posible dar cuenta de una mayor concentración de casos con menores
+                                                                                    aproximados). Así, es posible dar cuenta de una mayor concentración de casos con menores
 años de escolaridad en mujeres, pese a que el caso de la mitad sea similar en ambos sexos. A
 su vez, al observar que el límite superior del rango intercuartílico y la mediana son menores
 en mujeres, es posible inferir que existe una diferencia de años de escolaridad a favor de los
 hombres.
 
 **Gráfico 2. Años de escolaridad según pobreza multidimensional**
-
-![](Output/graphs/graf_2.png)
+  
+  ![](output/graphs/graf_2.png)
 
 ```{r,echo=FALSE, eval =F}
 #Gráfico 2
-
 plot_grpfrq(var.cnt = baseproc$escolaridad,var.grp =
-baseproc$pobreza_multidimensional,type = "box")
-
+              baseproc$pobreza_multidimensional,type = "box")
 #Al guardar la imgen en graphs no permite ver imagen
 #graf_2<-plot_grpfrq(var.cnt = baseproc$escolaridad,var.grp =baseproc$pobreza_multidimensional,type = "box")
 #png("../output/graphs/graf_2.png")
@@ -316,11 +300,10 @@ hipótesis que señala que los “No pobres” tienen mayores probabilidades de 
 de escolaridad.
 
 **Gráfico 3. Años de escolaridad y nivel de educación de madre**
-
+  
 ```{r, echo=FALSE}
 #Gráfico 3
 plot_grpfrq(var.cnt = baseproc$escolaridad,var.grp = baseproc$educacion_madre,type ="box")
-
 #Comandos para guardar imagen en graphs
 #graf_3<-plot_grpfrq(var.cnt = baseproc$escolaridad,var.grp = baseproc$educacion_madre,type ="box")
 #png("../output/graphs/graf_3.png")
@@ -339,16 +322,12 @@ escolaridad.
 
 **Tabla 3. Matriz de correlaciones**
 ```{r, echo=FALSE}
-
 tab_corre<-tab_corr(baseproc,
-                   triangle = "lower",
-                   title = "Tabla Correlación", 
-         file = "output/tables/tabla_corre.html")
+                    triangle = "lower",
+                    title = "Tabla Correlación", 
+                    file = "output/tables/tabla_corre.html")
 tab_corre
-
 #webshot("../output/tables/tabla_corre.html", "../output/tables/tabla_corre.png") 
-
-
 ```
 
 
@@ -367,35 +346,29 @@ significativa de -0.007.
 ### 4.3 Modelo de regresión
 
 **Tabla 3. Modelo de regresión**
-
-![Tabla 3](Output/tables/reg4.png)
+  
+![Tabla 3](output/tables/reg4.png)
 
 
 ```{r, echo=FALSE}
-
 #---3. Se realiza Regresión multiple con variables seleccionadas
 #Se prepara la variable dummy de pobreza 
 baseproc %>%
- group_by(pobreza_multidimensional) %>%
+  group_by(pobreza_multidimensional) %>%
   summarise(mean_escolaridad=mean(escolaridad,na.rm = T))
-
 #Se realiza el modelo de regresion de variable pobreza 
 reg1<-lm(escolaridad ~ pobreza_multidimensional, data=baseproc)
-
 #Se prepara la variable categorica del nivel educacional para que pueda ser procesada por R
-
 baseproc$educacion_madre<- as_factor(baseproc$educacion_madre)
 reg2<-lm(escolaridad ~ pobreza_multidimensional+educacion_madre, data=baseproc)
 #Se realiza el modelo de regresion
 baseproc$educacion_madre<- as_factor(baseproc$educacion_madre)
-
 #Se prepara la variable dummy del sexo 
 baseproc %>%
   group_by(sexo) %>%
   summarise(mean_escolaridad=mean(escolaridad,na.rm = T))
 #Se realiza modelo de regresion
 reg3<-lm(escolaridad ~ pobreza_multidimensional+educacion_madre+sexo, data=baseproc)
-
 #Se prepara la variable de nivel educacional pues el categorica para que pueda ser leida por R
 baseproc$educacion_madre<- as_factor(baseproc$educacion_madre)
 reg4 <- lm(escolaridad~educacion_madre,data = baseproc)
@@ -446,17 +419,16 @@ para edad como sexo, es posible aseverar una diferencia significativa con un 99,
 confianza.
 
 Así, el Modelo 4 de regresión elaborado se expresa de la siguiente manera:
-
-Años de escolaridad = 12.485 + (-2.573) ∙ Pobreza multidimensional + (2.744) ∙ Primaria y
+  
+  Años de escolaridad = 12.485 + (-2.573) ∙ Pobreza multidimensional + (2.744) ∙ Primaria y
 secundaria baja + (5.011) ∙ Secundaria alta + (6.275) ∙ Terciaria de ciclo corto + (6.449) ∙
 Terciaria y postgrado + (-0.285) ∙ Sexo + (-0,079) ∙ Edad + 𝜀
 
 **Gráfico 4. Coeficientes de regresión**
-![](output/graphs/graf_4.png)
+  ![](output/graphs/graf_4.png)
 
 ```{r, echo=FALSE}
 #---- 5. Visualización coeficiente de regresión
-
 plot_model(reg4, show.values = TRUE)+ theme_sjplot()
 #graf_4 <-plot_model(reg4, show.values = TRUE)+ theme_sjplot()
 #png("../output/graphs/graf_4.png")
@@ -503,7 +475,7 @@ entorno propicio para el desenvolvimiento educativo de los/as hijos/as. De maner
 madres cuyos niveles de escolaridad son menores por lo general se insertan en contextos
 laborales más precarios, dificultando el garantizar una buena educación a sus hijos/as. En el
 caso de familias monoparentales con jefaturas femeninas (más frecuentes que jefaturas
-masculinas en este tipo de hogar) suele hacerse más complejo buscar apoyo para la crianza, lo
+                                                         masculinas en este tipo de hogar) suele hacerse más complejo buscar apoyo para la crianza, lo
 que puede tener un impacto en el desarrollo educativo de los/as hijos/as.
 En el caso de la variable sexo, también tiene un efecto significativo, pese a no ser tan
 grande como el del resto de las variables. Se evidencia que el ser mujer implica poseer menos
@@ -523,6 +495,6 @@ En cuanto a las limitaciones, es posible que al considerar la variación de los 
 
 
 <div/>
-
-
-## 6. Referencias
+  
+  
+  ## 6. Referencias
