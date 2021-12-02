@@ -14,10 +14,10 @@
 
 <title>Los años de escolaridad según la pobreza multidimensional, el nivel de escolaridad de la madre y el sexo: un análisis de regresión múltiple</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
-<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/yeti.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -30,11 +30,7 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
@@ -86,6 +82,7 @@ div.csl-indent {
 }
 </style>
 
+<link rel="stylesheet" href="styles.css" type="text/css" />
 
 
 
@@ -244,9 +241,6 @@ $(document).ready(function () {
 </style>
 
 <!-- code folding -->
-<style type="text/css">
-.code-folding-btn { margin-bottom: 4px; }
-</style>
 
 
 
@@ -263,6 +257,9 @@ $(document).ready(function () {
 }
 
 @media print {
+#TOC {
+  display: none !important;
+}
 .toc-content {
   /* see https://github.com/w3c/csswg-drafts/issues/4434 */
   float: right;
@@ -309,6 +306,12 @@ div.tocify {
   border-radius: 0px;
 }
 
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
 
 </style>
 
@@ -342,25 +345,25 @@ div.tocify {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Pagina web paper</a>
+      <a class="navbar-brand" href="index.html">Investigación abierta</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="paper.html">Paper</a>
+  <a href="reporte.html">reporte</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="(gabriela.ruz@ug.uchile.cl)">
     <span class="fa fa-envelope fa-lg"></span>
-     
+
   </a>
 </li>
 <li>
-  <a href="https://github.com/gabrielaruzal/IPO_a-osdeescolaridad">
+  <a href="https://github.com/gabrielaruzal/IPO_a-osdeescolaridad/">
     <span class="fa fa-github fa-lg"></span>
-     
+
   </a>
 </li>
       </ul>
@@ -369,14 +372,6 @@ div.tocify {
 </div><!--/.navbar -->
 
 <div id="header">
-
-<div class="btn-group pull-right float-right">
-<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
-<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
-<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
-<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
-</ul>
-</div>
 
 
 
@@ -391,26 +386,23 @@ div.tocify {
 <div id="resumen" class="section level3">
 <h3>Resumen</h3>
 <p>En la sociedad chilena, la educación constituye un valor muy apreciado por la población, que ve en ella la única forma de progresar en la vida. Por ello, la mayoría de las personas se encuentran dispuestas a realizar grandes esfuerzos para obtener un buen nivel educacional <span class="citation">(<a href="#ref-oliva_88_2018" role="doc-biblioref">Oliva 2018</a>)</span>. Sin embargo, existen factores vinculados a desigualdades socioeconómicas y demográficas de origen que obstruyen la posibilidad de dedicar más tiempo de vida a los estudios, de obtener un buen desempeño educativo, o de prevenir la deserción o retraso. La presente investigación busca analizar en que medida las variables nivel de escolaridad alcanzado por la madre, sexo y pobreza multidimensional, influyen en los años de escolaridad de las personas, entendiendo que dichas variables proveen información sobre las circunstancias socioeconómicas que caracterizarán la trayectoria educacional. Se elabora un modelo de regresión múltiple a partir de los datos proporcionados por la encuesta <a href="http://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen-2017">CASEN 2017</a>, con una base filtrada de N=51.472 (personas).Los resultados mostraron una relación significativa entre la variable dependiente con todas las demás variables independientes (p&lt;.001). Estar en una situación de pobreza multidimensional disminuye los años de escolaridad del entrevistado/a, y a medida que aumenta el nivel de escolaridad de la madre, aumentan los años de escolaridad. Respecto al sexo, los años de escolaridad disminuyen en un -0.285 en el caso de las mujeres, y en cuanto a edad, disminuirían en un -0,079 a medida que aumenta. Se concluye la relevancia predictiva del modelo, con un R cuadrado ajustado de 0.425.</p>
-<p>Palabras clave: “Escolaridad”; Pobreza multidimensional”; “Sexo”; “Regresión múltiple.”</p>
+<p>Palabras clave: “Escolaridad”; Pobreza multidimensional”; “Sexo”; “Regresión múltiple”.</p>
+<pre><code>## [1] &quot;/home/juank/github/esco2&quot;</code></pre>
 </div>
 <div id="introducción" class="section level2">
 <h2>1.Introducción</h2>
 <p>La educación y la adquisición de conocimiento han sido temas prioritarios en las discusiones sobre desarrollo social, dado que constituye una puerta de entrada para la mejora de la expectativa de vida de las personas <span class="citation">(<a href="#ref-rivero_reforma_2000" role="doc-biblioref">Rivero 2000</a>)</span>, para alentar el crecimiento económico de los países y mejorar sus condiciones de competencia en un mundo globalizado <span class="citation">(<a href="#ref-garbanzo_vargas_factores_2014" role="doc-biblioref">Garbanzo Vargas 2014</a>)</span>.</p>
-<p>En Chile, según datos del CENSO 2017 <span class="citation">(<a href="#ref-sierra_determinantes_2019" role="doc-biblioref">Sierra et al. 2019</a>)</span>, la población de 15 años o más tiene en promedio 11,05 años de escolaridad. No obstante, el nivel educativo dista de ser equitativo en todos los grupos de la sociedad. Las cifras de CASEN <span class="citation"><a href="#ref-encuesta_de_caracterizacion_socioeconomica_observatorio_2017" role="doc-biblioref">socioeconómica.</a> (<a href="#ref-encuesta_de_caracterizacion_socioeconomica_observatorio_2017" role="doc-biblioref">2017</a>)</span> cuentan que de casi 5 millones de adultos sin escolaridad completa, el 50,4% son mujeres, versus 44,1% de hombres. Entre las razones que pudiesen justificar esta cifra encontramos la necesidad de cuidar familiares. De hecho, la mayor parte de las mujeres fuera de la fuerza de trabajo, esto es 1.300.669 personas (34,7%), señaló que no trabaja debido a razones familiares permanentes, pues deben cuidar a hijos, hijas u otros familiares. En cambio, solo 2,3% de los hombres (45.527 personas) entregó esta razón para no trabajar y/o estudiar <span class="citation">(<a href="#ref-instituto_nacional_de_estadistica_sintesis_2017" role="doc-biblioref">Estadística 2017</a>)</span>.</p>
+<p>En Chile, según datos del CENSO 2017 <span class="citation">(<a href="#ref-sierra_determinantes_2019" role="doc-biblioref">Sierra et al. 2019</a>)</span>, la población de 15 años o más tiene en promedio 11,05 años de escolaridad. No obstante, el nivel educativo dista de ser equitativo en todos los grupos de la sociedad. Las cifras de CASEN <span class="citation">socioeconómica. (<a href="#ref-encuesta_de_caracterizacion_socioeconomica_observatorio_2017" role="doc-biblioref">2017</a>)</span> cuentan que de casi 5 millones de adultos sin escolaridad completa, el 50,4% son mujeres, versus 44,1% de hombres. Entre las razones que pudiesen justificar esta cifra encontramos la necesidad de cuidar familiares. De hecho, la mayor parte de las mujeres fuera de la fuerza de trabajo, esto es 1.300.669 personas (34,7%), señaló que no trabaja debido a razones familiares permanentes, pues deben cuidar a hijos, hijas u otros familiares. En cambio, solo 2,3% de los hombres (45.527 personas) entregó esta razón para no trabajar y/o estudiar <span class="citation">(<a href="#ref-instituto_nacional_de_estadistica_sintesis_2017" role="doc-biblioref">Estadística 2017</a>)</span>.</p>
 <p>El análisis de Deserción Escolar en Chile realizado por la Universidad del Desarrollo (2017) señala que tanto los hombres desertores como las mujeres desertoras responden según un set de valores en el que hay una mayor tendencia hacia una clara delimitación de los roles de género. Esta delimitación se produce hacia una concepción tradicional de género en que la mujer se dedica a la crianza y el hombre es proveedor. También, se ha observado que las madres con menor escolaridad aumentan la probabilidad de deserción en los/as hijos/as, así como sus expectativas académicas (Román, 2013). Asimismo, niveles de pobreza y vulnerabilidad social mayores juegan en contra de la posibilidad de alcanzar mayores niveles de escolaridad <span class="citation">(<a href="#ref-catro_d_pobreza_2013" role="doc-biblioref">Catro D. and Cano G. 2013</a>)</span>. Si bien los objetivos que posee el sistema educacional chileno se relacionan con garantizar calidad, herramientas y asegurar ciertos años de escolaridad para la población <span class="citation">(<a href="#ref-chile_indicadores_2006" role="doc-biblioref">Chile, Ministerio de Educación, and Departamento de Estudios y Desarrollo 2006</a>)</span>, estos propósitos pueden verse afectados por ciertas desigualdades de origen, como el sexo, los niveles de pobreza y la escolaridad familiar.</p>
 <p>En base a esto, el presente trabajo se propone indagar en la relación existente entre la variable dependiente <strong>años de escolaridad</strong> de la población chilena, y factores de índole socioeconómico y sociodemográfico, a saber; <strong>nivel de escolaridad alcanzado por la madre</strong>, <strong>sexo</strong> y <strong>pobreza multidimensional</strong>. Proponemos que estas variables influyen directamente en los años de escolaridad que alcanzan las personas, así como también sus posibilidades para encontrar empleos y tener buenos salarios.</p>
 <div id="pregunta-de-investigación" class="section level3">
 <h3>1.1 Pregunta de investigación</h3>
 <p>¿De qué manera inciden las variables <strong>pobreza multidimensional</strong>, <strong>nivel de escolaridad de la madre</strong> y <strong>sexo</strong> en <strong>los años de escolaridad</strong> de la población chilena, controlado por la variable edad?</p>
-</div>
-<div id="objetivos" class="section level3">
-<h3>1.2 Objetivos</h3>
-<div id="objetivo-general" class="section level4">
-<h4>1.2.1 Objetivo general</h4>
+<p>### 1.2 Objetivos</p>
+<p>#### 1.2.1 Objetivo general</p>
 <ul>
 <li>Analizar la incidencia de las variables pobreza multidimensional, nivel de escolaridad de la madre y sexo en los años de escolaridad de la población chilena, controlado por la variable edad</li>
 </ul>
-</div>
 <div id="objetivos-específicos" class="section level4">
 <h4>1.2.2 Objetivos específicos</h4>
 <ul>
@@ -540,7 +532,7 @@ Edad
 pobreza_multidimensional
 </td>
 <td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">
-SituaciÃ³n de pobreza multidimensional con entorno<br>y redes (5 dimensiones)
+Situación de pobreza multidimensional con entorno<br>y redes (5 dimensiones)
 </td>
 <td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">
 0<br>1
@@ -576,18 +568,18 @@ Nivel de educaci?n m?s alto alcanzado por su madre<br>(o fig.materna)
 <p>En el Gráfico 1 se observa que la mediana de años de escolaridad entre mujeres y hombres es similar. No obstante, el promedio es menor en mujeres, lo que sugiere un mayor peso de los casos inferiores extremos, haciendo que la media sea menor. A su vez, en el caso de los hombres existe una mayor dispersión de los casos, con un rango intercuartílico más amplio que el de las mujeres. Se evidencia que, en el caso de los hombres, un 75% de los casos posee 15 o menos años de escolaridad, mientras que en las mujeres es 13 años (rangos aproximados). Así, es posible dar cuenta de una mayor concentración de casos con menores años de escolaridad en mujeres, pese a que el caso de la mitad sea similar en ambos sexos. A su vez, al observar que el límite superior del rango intercuartílico y la mediana son menores en mujeres, es posible inferir que existe una diferencia de años de escolaridad a favor de los hombres.</p>
 <p><strong>Gráfico 2. Años de escolaridad según pobreza multidimensional</strong></p>
 <p><img src="output/graphs/graf_2.png" /></p>
-<p>Por su parte, el Gráfico 2 plasma la diferencia, tanto en el promedio como en la mediana, de los años de escolaridad en referencia a la pobreza multidimensional, mostrando una tendencia más desfavorable para la categoría “Si es pobre.” En esta última, el 50% posee 8 años o menos de escolaridad, a diferencia de los no pobres, en donde el 50% alcanzan 12 o menos años (rangos aproximados). Asimismo, existe menor dispersión en la categoría de los “No pobres,” en comparación a la categoría “Si es pobre.” Esto va en coherencia con la hipótesis que señala que los “No pobres” tienen mayores probabilidades de alcanzar más años de escolaridad.</p>
+<p>Por su parte, el Gráfico 2 plasma la diferencia, tanto en el promedio como en la mediana, de los años de escolaridad en referencia a la pobreza multidimensional, mostrando una tendencia más desfavorable para la categoría “Si es pobre”. En esta última, el 50% posee 8 años o menos de escolaridad, a diferencia de los no pobres, en donde el 50% alcanzan 12 o menos años (rangos aproximados). Asimismo, existe menor dispersión en la categoría de los “No pobres”, en comparación a la categoría “Si es pobre”. Esto va en coherencia con la hipótesis que señala que los “No pobres” tienen mayores probabilidades de alcanzar más años de escolaridad.</p>
 <p><strong>Gráfico 3. Años de escolaridad y nivel de educación de madre</strong></p>
 <p><img src="reporte_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>Por su parte, el Gráfico 3 demuestra una tendencia al aumento de los años de escolaridad en función a un mayor nivel educativo de la madre. Se observa una mayor dispersión de años en los casos de nivel de educación más bajo, pero aún así el límite superior de su rango intercuartílico, su media y su mediana es menor en comparación a cualquiera de los demás niveles de educación. Esta tendencia también es concordante con la hipótesis que señala que a mayor nivel de escolaridad de la madre, mayores tienden a ser los años de escolaridad.</p>
 <strong>Tabla 3. Matriz de correlaciones</strong>
 <table style="border-collapse:collapse; border:none;">
 <caption style="font-weight: bold; text-align:left;">
-Tabla CorrelaciÃ³n
+Tabla Correlación
 </caption>
 <tr>
 <th style="font-style:italic; font-weight:normal; border-top:double black; border-bottom:1px solid black; padding:0.2cm;">
- 
+
 </th>
 <th style="font-style:italic; font-weight:normal; border-top:double black; border-bottom:1px solid black; padding:0.2cm;">
 A?os de escolaridad
@@ -599,7 +591,7 @@ Sexo de entrevistado/a
 Edad
 </th>
 <th style="font-style:italic; font-weight:normal; border-top:double black; border-bottom:1px solid black; padding:0.2cm;">
-SituaciÃ³n de pobreza multidimensional<br>con entorno y redes (5 dimensiones)
+Situación de pobreza multidimensional<br>con entorno y redes (5 dimensiones)
 </th>
 <th style="font-style:italic; font-weight:normal; border-top:double black; border-bottom:1px solid black; padding:0.2cm;">
 Nivel de educaci?n m?s alto alcanzado<br>por su madre (o fig.materna)
@@ -610,19 +602,19 @@ Nivel de educaci?n m?s alto alcanzado<br>por su madre (o fig.materna)
 A?os de escolaridad
 </td>
 <td style="padding:0.2cm; text-align:center;">
- 
+
 </td>
 <td style="padding:0.2cm; text-align:center;">
- 
+
 </td>
 <td style="padding:0.2cm; text-align:center;">
- 
+
 </td>
 <td style="padding:0.2cm; text-align:center;">
- 
+
 </td>
 <td style="padding:0.2cm; text-align:center;">
- 
+
 </td>
 </tr>
 <tr>
@@ -633,16 +625,16 @@ Sexo de entrevistado/a
 -0.042<span style="vertical-align:super;font-size:0.8em;">***</span>
 </td>
 <td style="padding:0.2cm; text-align:center;">
- 
+
 </td>
 <td style="padding:0.2cm; text-align:center;">
- 
+
 </td>
 <td style="padding:0.2cm; text-align:center;">
- 
+
 </td>
 <td style="padding:0.2cm; text-align:center;">
- 
+
 </td>
 </tr>
 <tr>
@@ -656,18 +648,18 @@ Edad
 0.023<span style="vertical-align:super;font-size:0.8em;">***</span>
 </td>
 <td style="padding:0.2cm; text-align:center;">
- 
+
 </td>
 <td style="padding:0.2cm; text-align:center;">
- 
+
 </td>
 <td style="padding:0.2cm; text-align:center;">
- 
+
 </td>
 </tr>
 <tr>
 <td style="font-style:italic;">
-SituaciÃ³n de pobreza multidimensional<br>con entorno y redes (5 dimensiones)
+Situación de pobreza multidimensional<br>con entorno y redes (5 dimensiones)
 </td>
 <td style="padding:0.2cm; text-align:center;">
 -0.308<span style="vertical-align:super;font-size:0.8em;">***</span>
@@ -679,10 +671,10 @@ SituaciÃ³n de pobreza multidimensional<br>con entorno y redes (5 dimensiones)
 0.066<span style="vertical-align:super;font-size:0.8em;">***</span>
 </td>
 <td style="padding:0.2cm; text-align:center;">
- 
+
 </td>
 <td style="padding:0.2cm; text-align:center;">
- 
+
 </td>
 </tr>
 <tr>
@@ -702,7 +694,7 @@ Nivel de educaci?n m?s alto alcanzado<br>por su madre (o fig.materna)
 -0.176<span style="vertical-align:super;font-size:0.8em;">***</span>
 </td>
 <td style="padding:0.2cm; text-align:center;">
- 
+
 </td>
 </tr>
 <tr>
@@ -733,7 +725,7 @@ Computed correlation used pearson-method with listwise-deletion.
 <table style="border-collapse:collapse; border:none;">
 <tr>
 <th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
- 
+
 </th>
 <th colspan="2" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
 Modelo 1
@@ -808,7 +800,7 @@ std. Error
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
-SituaciÃ³n de pobreza<br>multidimensional con<br>entorno y redes (5<br>dimensiones)
+Situación de pobreza<br>multidimensional con<br>entorno y redes(5<br>dimensiones)
 </td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
 -3.787 <sup>***</sup>
@@ -837,7 +829,7 @@ SituaciÃ³n de pobreza<br>multidimensional con<br>entorno y redes (5<br>dimensi
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
-Nivel de educaci?n m?s<br>alto alcanzado por su<br>madre (o fig.materna):<br>2=Primaria y secundaria<br>baja
+Nivel de educaci?n m?s<br>alto alcanzado por su<br>madre(o fig materna):<br>2=Primaria y secundaria<br>baja
 </td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
 </td>
@@ -864,7 +856,7 @@ Nivel de educaci?n m?s<br>alto alcanzado por su<br>madre (o fig.materna):<br>2=P
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
-Nivel de educaci?n m?s<br>alto alcanzado por su<br>madre (o fig.materna):<br>3=Secundaria alta
+Nivel de educaci?n m?s<br>alto alcanzado por su<br>madre(o fig materna):<br>3=Secundaria alta
 </td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
 </td>
@@ -891,7 +883,7 @@ Nivel de educaci?n m?s<br>alto alcanzado por su<br>madre (o fig.materna):<br>3=S
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
-Nivel de educaci?n m?s<br>alto alcanzado por su<br>madre (o fig.materna):<br>4=Terciaria ciclo corto
+Nivel de educaci?n m?s<br>alto alcanzado por su<br>madre(o fig materna):<br>4=Terciaria ciclo corto
 </td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
 </td>
@@ -918,7 +910,7 @@ Nivel de educaci?n m?s<br>alto alcanzado por su<br>madre (o fig.materna):<br>4=T
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
-Nivel de educaci?n m?s<br>alto alcanzado por su<br>madre (o fig.materna):<br>5=Terciaria y Postgrado
+Nivel de educaci?n m?s<br>alto alcanzado por su<br>madre(o fig materna):<br>5=Terciaria y Postgrado
 </td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
 </td>
@@ -1028,7 +1020,7 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 <tr>
 <td colspan="9" style="font-style:italic; border-top:double black; text-align:right;">
 <ul>
-<li>p&lt;0.05   ** p&lt;0.01   *** p&lt;0.001
+<li>p&lt;0.05   ** p&lt;0.01   *** p&lt;0.001
 </td>
 </tr></li>
 </ul>
@@ -1045,7 +1037,7 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 </div>
 <div id="ajuste-del-modelo" class="section level3">
 <h3>4.4 Ajuste del modelo</h3>
-<p>El modelo 4 presenta un R cuadrado ajustado de 0.425, es decir, del total de la varianza de los años de escolaridad, un 42.5% se puede explicar por las variables independientes incorporadas en el modelo. Se observa también en el Modelo 3, en donde no se incluye la variable de control “edad,” la varianza explicada disminuye a 35,7%, por lo que la inclusión de dicha variable aumenta la capacidad predictiva del modelo en un 6,8%. La variable sexo es aquella que menos logra explicar la varianza en años de escolaridad, con una diferencia de R cuadrado ajustado entre el modelo 2 y 3 de un 0.001.</p>
+<p>El modelo 4 presenta un R cuadrado ajustado de 0.425, es decir, del total de la varianza de los años de escolaridad, un 42.5% se puede explicar por las variables independientes incorporadas en el modelo. Se observa también en el Modelo 3, en donde no se incluye la variable de control “edad”, la varianza explicada disminuye a 35,7%, por lo que la inclusión de dicha variable aumenta la capacidad predictiva del modelo en un 6,8%. La variable sexo es aquella que menos logra explicar la varianza en años de escolaridad, con una diferencia de R cuadrado ajustado entre el modelo 2 y 3 de un 0.001.</p>
 </div>
 </div>
 <div id="discusión" class="section level2">
@@ -1058,9 +1050,7 @@ R<sup>2</sup> / R<sup>2</sup> adjusted
 <div/>
 
 
-</div>
-<div id="referencias" class="section level2 unnumbered">
-<h2 class="unnumbered">6. Referencias</h2>
+<p>## 6. Referencias</p>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-catro_d_pobreza_2013" class="csl-entry">
 Catro D., Liilian Inés, and Rufino Cano G. 2013. <span>“Pobreza y Vulnerabilidad. <span>Factores</span> de Riesgo En El Proceso Educativo.”</span> <em>Contextos Educativos. Revista de Educación</em>, no. 16 (June): 55–72. <a href="https://doi.org/10.18172/con.1290">https://doi.org/10.18172/con.1290</a>.
@@ -1142,11 +1132,6 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
-<script>
-$(document).ready(function () {
-  window.initializeCodeFolding("hide" === "show");
-});
-</script>
 
 <script>
 $(document).ready(function ()  {
@@ -1161,7 +1146,7 @@ $(document).ready(function ()  {
 
     // establish options
     var options = {
-      selectors: "h1,h2,h3",
+      selectors: "",
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
@@ -1170,8 +1155,8 @@ $(document).ready(function ()  {
       ignoreSelector: ".toc-ignore",
       scrollTo: 0
     };
-    options.showAndHide = true;
-    options.smoothScroll = true;
+    options.showAndHide = false;
+    options.smoothScroll = false;
 
     // tocify
     var toc = $("#TOC").tocify(options).data("toc-tocify");
